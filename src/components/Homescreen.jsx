@@ -66,13 +66,24 @@ const Homescreen = () => {
 
 
     
-    <div className="flex flex-end ">
+    <div className="flex flex-end gap-3 ">
+    <img
+      src="https://t3.ftcdn.net/jpg/03/12/75/62/360_F_312756263_LUbawIl0tPk7WiIRhj2TvFy0OyRfA0KM.jpg"
+      className="w-10 h-10" 
+      alt=""
+    />
     <img
       src="https://c0.klipartz.com/pngpicture/224/890/gratis-png-logo-iconos-de-computadora-icono-de-hacker-de-sombrero-blanco.png"
       className="w-10 h-10" 
       alt=""
     />
-    
+     <img
+      
+      src="https://cdn.iconscout.com/icon/free/png-256/free-hacker-15-448496.png"
+      className="w-10 h-10" 
+      alt=""
+    />"
+      
        
     </div>
     </div>
