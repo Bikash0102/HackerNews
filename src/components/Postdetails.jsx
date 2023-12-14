@@ -1,18 +1,20 @@
-
+//import section 
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 const PostDetail = () => {
+  //usestate to store post data and loading status
   const [postDetails, setPostDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const {id} = useParams();
   
+  //api calling section
   useEffect(() => {
 
     
    
     const fetchPostDetails = async () => {
       try {
-        const response = await fetch(`http://hn.algolia.com/api/v1/items/${id}`);
+        const response = await fetch(`https://hn.algolia.com/api/v1/items/${id}`);
         const data = await response.json();
         setPostDetails(data);
         setLoading(false);
@@ -25,7 +27,7 @@ const PostDetail = () => {
     fetchPostDetails();
    
   }, [id]);
-
+//error and loading codition checking
   if (loading) {
     return <div  className='h-30 text-center text-2xl mt-3 p-4  rounded-full bg-red-500 '>Loading...</div>;
   }
@@ -33,7 +35,7 @@ const PostDetail = () => {
   if (!postDetails) {
     return <div>Error loading post details</div>;
   }
-
+//data display section
   return (
     <div className='h-screen w-full flex-row bg-neutral-50 '>
       <div  className="text-center  p-4 bg-red-600 h-22">

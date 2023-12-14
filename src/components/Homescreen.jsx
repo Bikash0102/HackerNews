@@ -15,7 +15,7 @@ const Homescreen = () => {
     }
 
     
-    const apiUrl = `http://hn.algolia.com/api/v1/search?query=${encodeURIComponent(query)}`
+    const apiUrl = `https://hn.algolia.com/api/v1/search?query=${encodeURIComponent(query)}`
     fetch(apiUrl)
       .then(response => response.json())
       .then(data => setResults(data.hits))
