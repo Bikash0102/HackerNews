@@ -15,19 +15,11 @@ const Homescreen = () => {
     }
 
     
-    const fetchPostDetails = async () => {
-      try {
-        const response = await fetch(`http://hn.algolia.com/api/v1/search?query=${encodeURIComponent(query)}`);
-        const data = await response.json();
-        setResults(data.hits)
-       
-      } catch (error) {
-        console.error('Error fetching post details:', error);
-       
-      }
-    };
-
-    fetchPostDetails();
+    const apiUrl = `http://hn.algolia.com/api/v1/search?query=${encodeURIComponent(query)}`
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => setResults(data.hits))
+      .catch(error => console.error('Error fetching search results:', error));
 
   }, [query]);
   //input change handling
@@ -37,7 +29,7 @@ const Homescreen = () => {
   };
 
   return (
-    //data output section
+    //data output
     <div >
       <div className="flex p-2  justify-between gap-2 bg-red-700 items-center border-b border-gray-300 flex-wrap">
     <div className="flex items-center gap-1">
